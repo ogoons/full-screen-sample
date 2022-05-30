@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
 import com.example.fullscreensample.MainActivity
 import com.example.fullscreensample.R
 import com.example.fullscreensample.databinding.FragmentHomeBinding
-import com.example.fullscreensample.ui.home.full.FullFragment
 
 class HomeFragment : Fragment() {
 
@@ -39,11 +37,15 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        binding.btnGoToFull.setOnClickListener {
+//            (requireActivity() as MainActivity).supportFragmentManager.commit {
+//                add(R.id.fcv_container, FullFragment())
+//                addToBackStack(null)
+//            }
+//        }
+
         binding.btnGoToFull.setOnClickListener {
-            (requireActivity() as MainActivity).supportFragmentManager.commit {
-                add(R.id.fcv_container, FullFragment())
-                addToBackStack(null)
-            }
+            (requireActivity() as MainActivity).navController.navigate(R.id.navigation_full_first)
         }
     }
 

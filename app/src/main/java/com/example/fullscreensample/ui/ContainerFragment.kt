@@ -7,9 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.NavHost
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
@@ -35,6 +39,7 @@ private const val ARG_PARAM2 = "param2"
 class ContainerFragment : Fragment() {
 
     private var _binding: FragmentContainerBinding? = null
+    private lateinit var navController: NavController
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -46,44 +51,47 @@ class ContainerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentContainerBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        return root
+        return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navView: BottomNavigationView = binding.navView
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.fcv_tab_container) as NavHostFragment
+        navController = navHostFragment.navController
 
-        navView.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.navigation_home -> {
-                    childFragmentManager.commit {
-                        replace(R.id.fcv_container, HomeFragment())
-                    }
-                }
-                R.id.navigation_dashboard -> {
-                    childFragmentManager.commit {
-                        replace(R.id.fcv_container, DashboardFragment())
-                    }
-                }
-                R.id.navigation_notifications -> {
-                    childFragmentManager.commit {
-                        replace(R.id.fcv_container, NotificationsFragment())
-                    }
-                }
-                else -> {
+        binding.bottomNavView.setupWithNavController(navController)
 
-                }
-            }
-            true
-        }
-
-        childFragmentManager.commit {
-            replace(R.id.fcv_container, HomeFragment())
-        }
+//        val navView: BottomNavigationView = binding.navView
+//
+//        navView.setOnItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.navigation_home -> {
+//                    childFragmentManager.commit {
+//                        replace(R.id.fcv_container, HomeFragment())
+//                    }
+//                }
+//                R.id.navigation_dashboard -> {
+//                    childFragmentManager.commit {
+//                        replace(R.id.fcv_container, DashboardFragment())
+//                    }
+//                }
+//                R.id.navigation_notifications -> {
+//                    childFragmentManager.commit {
+//                        replace(R.id.fcv_container, NotificationsFragment())
+//                    }
+//                }
+//                else -> {
+//
+//                }
+//            }
+//            true
+//        }
+//
+//        childFragmentManager.commit {
+//            replace(R.id.fcv_container, HomeFragment())
+//        }
     }
 
     companion object {

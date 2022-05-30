@@ -7,7 +7,7 @@
     tools:context=".ui.ContainerFragment">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/bottom_nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
@@ -19,10 +19,13 @@
         app:menu="@menu/bottom_nav_menu" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fcv_container"
+        android:id="@+id/fcv_tab_container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/tab_navigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -3,12 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/full_navigation"
-    app:startDestination="@+id/navigation_full">
+    app:startDestination="@+id/navigation_container">
 
     <fragment
-        android:id="@+id/navigation_full"
-        android:name="com.example.fullscreensample.ui.home.full.FullFragment"
-        android:label="Full"
-        tools:layout="@layout/fragment_full" />
+        android:id="@+id/navigation_container"
+        android:name="com.example.fullscreensample.ui.ContainerFragment"
+        android:label="Container"
+        tools:layout="@layout/fragment_container" />
 
+    <fragment
+        android:id="@+id/navigation_full_first"
+        android:name="com.example.fullscreensample.ui.home.full.FullFirstFragment"
+        android:label="Full first"
+        tools:layout="@layout/fragment_full_first" />
+
+    <fragment
+        android:id="@+id/navigation_full_second"
+        android:name="com.example.fullscreensample.ui.home.full.FullSecondFragment"
+        android:label="Full second"
+        tools:layout="@layout/fragment_full_second" />
+
+    <fragment
+        android:id="@+id/navigation_full_third"
+        android:name="com.example.fullscreensample.ui.home.full.FullThirdFragment"
+        android:label="Full third"
+        tools:layout="@layout/fragment_full_third" />
 </navigation>

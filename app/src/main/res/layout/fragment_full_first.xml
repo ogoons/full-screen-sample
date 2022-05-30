@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_red_dark"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.home.full.FullFirstFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full first fragment" />
+
+    <EditText
+        android:id="@+id/et_input"
+        android:hint="여기에 텍스트를 입력하고 유지되는지 확인"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_go_to_full_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Go to full second fragment" />
+
+</LinearLayout>
