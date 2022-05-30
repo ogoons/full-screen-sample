@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/full_navigation"
+    app:startDestination="@+id/navigation_full">
+
+    <fragment
+        android:id="@+id/navigation_full"
+        android:name="com.example.fullscreensample.ui.home.full.FullFragment"
+        android:label="Full"
+        tools:layout="@layout/fragment_full" />
+
+</navigation>
